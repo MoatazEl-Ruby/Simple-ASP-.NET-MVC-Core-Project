@@ -1,0 +1,17 @@
+﻿<div class="d-flex justify-content-center">
+    <div class="text-center mt-5 bg-dark w-25  ">
+        <p class="text-primary text-center fs-3 fw-bold">Roles Selection</p>
+
+        <form asp-action="GetUsers" asp-controller="Manage">
+
+            <select asp-items="ViewBag.Roles" name="roleid" class="mb-3">
+
+                <option disabled>Select Role</option>
+            </select>
+            <<input type="submit" value="Get Users" class="mb-3 btn btn-primary" />
+
+        </form>
+
+    </div>
+
+</div>

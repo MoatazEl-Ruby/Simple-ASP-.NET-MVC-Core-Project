@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "GetUsers";
+}
+
+
+<partial name="RolesForm" />
+<div class="d-flex justify-content-center">
+    <div class="text-center mt-5 bg-dark w-25  ">
+        <p class="text-primary text-center fs-3 fw-bold">Users Selection</p>
+
+        <form asp-action="ChangeUserRoles" asp-controller="Manage">
+            <input hidden name="roleid" value="@ViewBag.RoleId" />
+            <div>
+                <label class="text-primary fw-bold mb-2">Users in Role</label><<br />
+                <select multiple asp-items="@ViewBag.usersinrole" name="UserToRemove"></select>
+
+            </div>
+            <div>
+                <label class="text-primary fw-bold mb-2">Users Not in Role</label><br />
+                <select multiple asp-items="@ViewBag.usersnotinrole" name="UserToAdd" class="mb-2"></select>
+
+            </div>
+            <input type="submit" value="Change Roles"class="btn btn-primary mb-2"/>
+            <br />
+            <a asp-action="index" asp-controller="Home" class="btn btn-primary mb-3 ">Back</a>
+
+        </form>
+
+
+    </div>
+
+</div>
+
+

@@ -1,0 +1,48 @@
+﻿@model Student
+@{
+
+    ViewBag.Title = "Add Student";
+}
+
+
+
+
+
+<div class="d-flex justify-content-center">
+    <div class="text-center mt-3 bg-dark w-25  ">
+        <p class="text-primary text-center fs-3">Creation Form</p>
+        <form method="post">
+            <div asp-validation-summary="All" class="text-danger  border-dark border-bottom mt-1 border-top"></div>
+            <input asp-for="Name" placeholder="Enter Name" class="mt-5" />
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Age" placeholder="Enter Age" />
+            <div><span asp-validation-for="Age" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Email" placeholder="Enter Email" />
+            <div><span asp-validation-for="Email" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Username" placeholder="Enter Username" />
+            <div><span asp-validation-for="Username" class="text-danger"></span></div>
+            <br />
+            <select asp-for="DeptId" asp-items="ViewBag.dept">
+
+                <option disabled selected>Select Department</option>
+            </select>
+            <div><span asp-validation-for="DeptId" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Password" placeholder="Enter Password" />
+            <br />
+            <br />
+            <input asp-for="CPassword" placeholder="Re-Enter Your Password" />
+            <div><span asp-validation-for="CPassword" class="text-danger"></span></div>
+            <br />
+            <input type="submit" value="Submit" class="mb-3 btn btn-success"/><br />
+            <a asp-action="index" asp-controller="Student" class="btn btn-primary mb-3">Back</a>
+
+        </form>
+
+    </div>
+
+</div>
+

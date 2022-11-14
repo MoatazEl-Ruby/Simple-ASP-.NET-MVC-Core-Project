@@ -1,0 +1,42 @@
+﻿@model Student
+@{
+
+    ViewBag.Title = "Update Student";
+}
+
+
+
+
+
+<div class="d-flex justify-content-center">
+    <div class="text-center mt-5 bg-dark w-25  ">
+        <p class="text-primary text-center fs-3">Updating Form</p>
+
+        <form  method="post">
+            <input asp-for="Id" hidden  />
+            <input asp-for="Name" placeholder="Enter Name" class="mt-5"  />
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Age" placeholder="Enter Age"  />
+            <div><span asp-validation-for="Age" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Email" placeholder="Enter Email"  />
+            <div><span asp-validation-for="Email" class="text-danger"></span></div>
+            <br />
+            <input asp-for="Username" placeholder="Enter Username" />
+            <div><span asp-validation-for="Username" class="text-danger"></span></div>
+            <br />
+            <select asp-for="DeptId" asp-items="ViewBag.dept">
+
+                <option disabled>Select Department</option>
+            </select>
+            <div><span asp-validation-for="DeptId" class="text-danger"></span></div>
+            <br />
+            <input type="submit" value="Submit" class="mb-3 btn btn-warning" /><br />
+            <a asp-action="index" asp-controller="Student" class="btn btn-primary mb-3">Back</a>
+
+        </form>
+
+    </div>
+
+</div>
