@@ -35,7 +35,7 @@
                     <td>
                         @if (User.IsInRole("Admin"))
                         {
-                            <a asp-action="DetailsInstructor" asp-controller="Student" class="btn btn-outline-light" asp-route-id="@items.Id">Details</a>
+                            <a asp-action="DetailsInstructor" asp-controller="Student" class="btn btn-outline-success" asp-route-id="@items.Id">Details</a>
                             <span class="text-black-50 fs-5">|</span>
                             <a asp-action="UpdateInstructor" asp-controller="Student" class="btn btn-outline-warning" asp-route-id="@items.Id">Update</a>
                             <span class="text-black-50 fs-5">|</span>
