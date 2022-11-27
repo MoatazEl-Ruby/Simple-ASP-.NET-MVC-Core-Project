@@ -38,7 +38,7 @@ namespace ASP.NET_Lab_4.Controllers
         
 
         // Create EndPoint
-        [Authorize(Roles = ("Admin"))]
+        [Authorize(Roles = ("Admin,Instructor"))]
         [HttpGet]
         public IActionResult Create()
         {
@@ -155,6 +155,18 @@ namespace ASP.NET_Lab_4.Controllers
             dB.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        [Authorize(Roles = ("Admin"))]
+        public IActionResult DeleteInstructor(int? id)
+        {
+            var DeletedStd = dB.Users.FirstOrDefault(a => a.Id == id.Value);
+            dB.Users.Remove(DeletedStd);
+            dB.SaveChanges();
+            return RedirectToAction("showInstructors");
+        }
+
+
 
         // Details EndPoint
         [Authorize(Roles = ("Admin,Instructor,Student"))]

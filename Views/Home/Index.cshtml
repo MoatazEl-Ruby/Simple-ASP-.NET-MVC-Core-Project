@@ -22,17 +22,11 @@
             <div class="buttons-left-margin">
                 @if (User.Identity.IsAuthenticated)
                 {
+                    <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
 
-                    if (User.IsInRole("Admin"))
-                    {
-                        <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
-
-                        <a asp-action="showInstructors" asp-controller="Student" class="btn btn-outline-danger fw-bold negative-margin mt-2">Instructors List</a>
-                        <br />
-                        <a asp-action="GetRoles" asp-controller="Manage" class="btn btn-outline-danger fw-bold left-marg">Change Roles</a>
-
-                    }
-
+                    <a asp-action="showInstructors" asp-controller="Student" class="btn btn-outline-danger fw-bold negative-margin mt-2">Instructors List</a>
+                    <br />
+                    <a asp-action="GetRoles" asp-controller="Manage" class="btn btn-outline-danger fw-bold left-marg">Change Roles</a>
                 }
 
             </div>
@@ -57,18 +51,7 @@
             <div class="buttons-left-margin-student">
                 @if (User.Identity.IsAuthenticated)
                 {
-
-                    if (User.IsInRole("Student"))
-                    {
-                        <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
-
-                    }
-                    else if (User.IsInRole("Instructor"))
-                    {
-                        <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
-
-                    }
-
+                    <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
                 }
 
             </div>
