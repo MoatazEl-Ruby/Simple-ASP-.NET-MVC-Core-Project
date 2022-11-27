@@ -1,4 +1,5 @@
 ﻿using ASP.NET_Lab_4.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,7 @@ using System.Linq;
 
 namespace ASP.NET_Lab_4.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class ManageController : Controller
     {
         private Lab_4_DB db;

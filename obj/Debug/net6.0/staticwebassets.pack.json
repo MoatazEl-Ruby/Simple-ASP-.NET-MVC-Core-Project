@@ -13,8 +13,28 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\image\\145807.png",
+      "PackagePath": "staticwebassets\\image\\145807.png"
+    },
+    {
       "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\image\\42080408.jpg",
       "PackagePath": "staticwebassets\\image\\42080408.jpg"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\image\\download.png",
+      "PackagePath": "staticwebassets\\image\\download.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\image\\facebook-social-media-icon-design-template-vector-png_127003.png",
+      "PackagePath": "staticwebassets\\image\\facebook-social-media-icon-design-template-vector-png_127003.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\image\\iti-logo.png",
+      "PackagePath": "staticwebassets\\image\\iti-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\image\\new.jpg",
+      "PackagePath": "staticwebassets\\image\\new.jpg"
     },
     {
       "Id": "C:\\Users\\HP\\source\\repos\\ASP.NET Lab 4\\wwwroot\\js\\site.js",

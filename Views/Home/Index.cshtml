@@ -1,19 +1,80 @@
-﻿
-@{
-    ViewData["Title"] = "Home Page";
+﻿@{
+    ViewData["Title"] = "Information Technology Institute";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    @if (User.Identity.IsAuthenticated)
+<div class=" home">
+    @if (User.IsInRole("Admin"))
     {
-        <a asp-action="index" asp-controller="Student" class="btn btn-success" >Students List</a>
-        <a asp-action="GetRoles" asp-controller="Manage" class="btn btn-success">Change Roles</a>
+        <div class="display-5 fw-bold text-white-50 col-5 font-monospace bg-black width  div-height ">
+            <div class="typewriter mb-3 text-center">
+                Welcome To
+            </div>
+            <div class="text-danger typewriter2 mb-3 text-center">
+                Information
+            </div>
+            <div class="text-danger typewriter3 mb-3 text-center">
+                Technology
+            </div>
+            <div class="text-danger typewriter4 mb-3 text-center">
+                Institute
+            </div>
+
+            <div class="buttons-left-margin">
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
+
+                        <a asp-action="showInstructors" asp-controller="Student" class="btn btn-outline-danger fw-bold negative-margin mt-2">Instructors List</a>
+                        <br />
+                        <a asp-action="GetRoles" asp-controller="Manage" class="btn btn-outline-danger fw-bold left-marg">Change Roles</a>
+
+                    }
+
+                }
+
+            </div>
+        </div>
     }
     else
     {
-        <a asp-action="Login" asp-controller="Account" class="btn btn-success">Students List</a>
+        <div class="display-5 fw-bold text-white-50 font-monospace bg-black width-student  div-height-Student ">
+            <div class="typewriter mb-3 text-center">
+                Welcome To
+            </div>
+            <div class="text-danger typewriter2 mb-3 text-center">
+                Information
+            </div>
+            <div class="text-danger typewriter3 mb-3 text-center">
+                Technology
+            </div>
+            <div class="text-danger typewriter4 mb-3 text-center">
+                Institute
+            </div>
+
+            <div class="buttons-left-margin-student">
+                @if (User.Identity.IsAuthenticated)
+                {
+
+                    if (User.IsInRole("Student"))
+                    {
+                        <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
+
+                    }
+                    else if (User.IsInRole("Instructor"))
+                    {
+                        <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger fw-bold  mt-2">Students List</a>
+
+                    }
+
+                }
+
+            </div>
+        </div>
 
     }
+
 
 </div>

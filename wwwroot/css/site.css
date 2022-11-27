@@ -1,18 +1,541 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+    body::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        left: 0px;
+        background-image: url(/image/new.jpg);
+        background-size: cover;
+        background-position: top center;
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+.home {
+    position: relative;
+
+}
+
+.lol {
+    color: black;
+}
+
+.typewriter {
+    position: relative;
+}
+
+    .typewriter::after {
+        content: '|';
+        position: absolute;
+        right: 10%;
+        color: transparent;
+        /*background-color: #cdcdcd;*/
+        background-color: black;
+        width: 85%;
+        text-align: left;
+        animation: typing 3s steps(20) forwards, line 3s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    } 
+    
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+
+.typewriter2 {
+    position: relative;
+}
+
+    .typewriter2::after {
+        content: '|';
+        position: absolute;
+        right: 6%;
+        color: transparent;
+        /*background-color: #cecfd1;*/
+        background-color: black;
+        width: 90%;
+        text-align: left;
+        animation: typing 3s 3s steps(20) forwards, line 3s 3s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+
+
+
+.typewriter3 {
+    position: relative;
+}
+
+    .typewriter3::after {
+        content: '|';
+        position: absolute;
+        right: 6%;
+        color: transparent;
+        background-color: black;
+        /*background-color: #d9d9d9;*/
+        width: 90%;
+        text-align: left;
+        animation: typing 3s 6s steps(20) forwards, line 3s 6s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+
+
+
+.typewriter4 {
+    position: relative;
+}
+
+    .typewriter4::after {
+        content: '|';
+        position: absolute;
+        right: 6%;
+        color: transparent;
+        background-color: black;
+        /*background-color: #e3dfdf;*/
+        width: 90%;
+        text-align: left;
+        animation: typing 3s 9s steps(20) forwards, line 3s 9s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+
+.typewriter5 {
+    position: relative;
+}
+
+    .typewriter5::after {
+        content: '|';
+        position: absolute;
+        right: 4%;
+        color: transparent;
+        /*background-color: #cdcdcd;*/
+        background-color: black;
+        width: 95%;
+        text-align: left;
+        animation: typing 3s steps(20) forwards, line 3s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+.typewriter6 {
+    position: relative;
+}
+
+    .typewriter6::after {
+        content: '|';
+        position: absolute;
+        right: 10%;
+        color: transparent;
+        /*background-color: #cdcdcd;*/
+        background-color: black;
+        width: 85%;
+        text-align: left;
+        animation: typing 3s 3s steps(20) forwards, line 3s 3s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+
+
+.typewriter7 {
+    position: relative;
+}
+
+    .typewriter7::after {
+        content: '|';
+        position: absolute;
+        right: 10%;
+        color: transparent;
+        /*background-color: #343a40;*/
+        background-color: black;
+        width: 85%;
+        text-align: left;
+        animation: typing 3s steps(20) forwards, line 3s;
+    }
+
+@keyframes typing {
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes line {
+    10% {
+        color: white;
+    }
+
+    20% {
+        color: transparent;
+    }
+
+    30% {
+        color: white;
+    }
+
+    40% {
+        color: transparent;
+    }
+
+    50% {
+        color: white;
+    }
+
+    60% {
+        color: transparent;
+    }
+
+    70% {
+        color: white;
+    }
+
+    80% {
+        color: transparent;
+    }
+
+    90% {
+        color: white;
+    }
+
+    95% {
+        color: transparent;
+    }
+}
+
+
+.left-marg{
+    margin-left: 80px;
+}
+
+
+.width{
+    width:400px;
+}
+
+.width-student {
+    width: 350px;
+}
+
+
+.div-height {
+    height: 70vh;
+}
+
+.div-height-Student {
+    height: 60vh;
+}
+
+.buttons-left-margin {
+    margin-left: 38px;
+}
+
+.buttons-left-margin-student {
+    margin-left: 100px;
+}
+
+
+.negative-margin {
+    margin-left: -12px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #dc3545;
+    box-shadow: 0px 0px 10px #dc3545;
 }

@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace ASP.NET_Lab_4.Controllers
 {
-
+    [Authorize]
     public class StudentController : Controller
     {
         Lab_4_DB dB;
@@ -22,93 +22,156 @@ namespace ASP.NET_Lab_4.Controllers
         [Authorize(Roles = ("Admin,Instructor,Student"))]
         public IActionResult Index()
         {
-            // Eager Loading
-
-            return View(dB.Students.Include(a => a.Department).ToList());
+            var students = dB.Users.Where(a => a.Roles.Contains(dB.Roles.FirstOrDefault(x => x.RoleName == "Student")));
+            return View(students);
         }
 
-        // Create EndPoint
-        [Authorize(Roles = ("Admin,Instructor"))]
+        [Authorize(Roles = ("Admin"))]
 
+        public IActionResult showInstructors()
+        {
+            var instructors = dB.Users.Where(a => a.Roles.Contains(dB.Roles.FirstOrDefault(x => x.RoleName == "Instructor")));
+            return View(instructors);
+        }  
+        
+        
+        
+
+        // Create EndPoint
+        [Authorize(Roles = ("Admin"))]
         [HttpGet]
         public IActionResult Create()
         {
-
-            ViewBag.dept = new SelectList(dB.Departments.ToList(), "DeptId", "DeptName");
             return View();
         }
         [HttpPost]
-        public IActionResult Create(Student std)
+        public IActionResult Create(User user)
         {
-            // Validation 3nd el server 2bl ma y3ml submit le el Database
             if (ModelState.IsValid)
             {
-                dB.Students.Add(std);
+                dB.Users.Add(user);
+                user.AddRoleToUser(dB.Roles.FirstOrDefault(a => a.Id == 3));
                 dB.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.dept = new SelectList(dB.Departments.ToList(), "DeptId", "DeptName");
-            return View(std);
+            return View(user);
         }
 
-        // Update EndPoint 
-        [Authorize(Roles = ("Admin,Instructor"))]
 
+
+        [Authorize(Roles = ("Admin"))]
+        [HttpGet]
+        public IActionResult CreateInstructor()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateInstructor(User user)
+        {
+            if (ModelState.IsValid)
+            {
+                dB.Users.Add(user);
+                user.AddRoleToUser(dB.Roles.FirstOrDefault(a => a.Id == 2));
+                dB.SaveChanges();
+                return RedirectToAction("showInstructors");
+            }
+            return View(user);
+        }
+
+
+
+
+
+
+
+        // Update EndPoint 
+        [Authorize(Roles = ("Admin"))]
         [HttpGet]
         public IActionResult Update(int? id)
         {
 
-            var oldstd = dB.Students.FirstOrDefault(a => a.Id == id);
-            ViewBag.dept = new SelectList(dB.Departments.ToList(), "DeptId", "DeptName");
+            var oldstd = dB.Users.FirstOrDefault(a => a.Id == id);
             return View(oldstd);
         }
 
         [HttpPost]
-        public IActionResult Update(Student std)
+        public IActionResult Update(User user)
         {
-            var oldstd = dB.Students.FirstOrDefault(a => a.Id == std.Id);
+            var oldstd = dB.Users.FirstOrDefault(a => a.Id == user.Id);
             if (ModelState.IsValid)
             {
-                oldstd.Name = std.Name;
-                oldstd.Age = std.Age;
-                oldstd.Email = std.Email;
-                oldstd.Username = std.Username;
-                oldstd.DeptId = std.DeptId;
-
+                oldstd.Name = user.Name;
+                oldstd.Age = user.Age;
+                oldstd.Email = user.Email;
+                oldstd.UserName = user.UserName;
                 dB.SaveChanges();
                 return RedirectToAction("Index");
-
             }
             else
             {
-
-                return View();
+                return View(user);
             }
-
-
         }
 
 
-        // Delete EndPoint
-        [Authorize(Roles = ("Admin,Instructor"))]
+        [Authorize(Roles = ("Admin"))]
+        [HttpGet]
+        public IActionResult UpdateInstructor(int? id)
+        {
 
+            var oldstd = dB.Users.FirstOrDefault(a => a.Id == id);
+            return View(oldstd);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateInstructor(User user)
+        {
+            var oldstd = dB.Users.FirstOrDefault(a => a.Id == user.Id);
+            if (ModelState.IsValid)
+            {
+                oldstd.Name = user.Name;
+                oldstd.Age = user.Age;
+                oldstd.Email = user.Email;
+                oldstd.UserName = user.UserName;
+                dB.SaveChanges();
+                return RedirectToAction("showInstructors");
+            }
+            else
+            {
+                return View(user);
+            }
+        }
+
+
+
+
+
+        // Delete EndPoint
+        [Authorize(Roles = ("Admin"))]
         public IActionResult Delete(int? id)
         {
-            var DeletedStd = dB.Students.FirstOrDefault(a => a.Id == id.Value);
-            dB.Students.Remove(DeletedStd);
+            var DeletedStd = dB.Users.FirstOrDefault(a => a.Id == id.Value);
+            dB.Users.Remove(DeletedStd);
             dB.SaveChanges();
             return RedirectToAction("Index");
-
         }
 
         // Details EndPoint
         [Authorize(Roles = ("Admin,Instructor,Student"))]
-
         public IActionResult Details(int? Id)
         {
-            var std = dB.Students.Include(a => a.Department).FirstOrDefault(a => a.Id == Id);
+            var std = dB.Users.FirstOrDefault(a => a.Id == Id);
             return View(std);
         }
+
+
+        [Authorize(Roles = ("Admin"))]
+        public IActionResult DetailsInstructor(int? Id)
+        {
+            var std = dB.Users.FirstOrDefault(a => a.Id == Id);
+            return View(std);
+        }
+
 
 
         // CheckUserName EndPoint 
@@ -125,27 +188,13 @@ namespace ASP.NET_Lab_4.Controllers
         {
             if (Id == 0)
             {
-                return !dB.Students.Any(a => a.Username == Username);
+                return !dB.Users.Any(a => a.UserName == Username);
             }
             else
             {
-                return !dB.Students.Any(a => a.Username == Username && a.Id != Id);
+                return !dB.Users.Any(a => a.UserName == Username && a.Id != Id);
 
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -1,23 +1,23 @@
 ﻿@model LoginViewModel
 @{
-    ViewData["Title"] = "login";
+    ViewData["Title"] = "Sign In";
 }
 
 
-<div class="d-flex justify-content-center">
-    <div class="text-center mt-5 bg-dark w-25  ">
-        <p class="text-primary text-center fs-3 fw-bold">Login Form</p>
+<div class="d-flex justify-content-center home">
+    <div class="text-center mt-5 bg-black  w-25  ">
+        <p class="text-danger text-center fs-3 fw-bold font-monospace typewriter7">Welcome to ITI</p>
 
         <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-warning"></div>
-            <input asp-for="UserName" placeholder="Enter Username" />
-            <div><span asp-validation-for="UserName" class="text-warning"></span></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="UserName" placeholder="Enter Username" class="font-monospace text-center" />
+            <div><span asp-validation-for="UserName" class="text-danger"></span></div>
             <br />
-            <input asp-for="Password" placeholder="Enter Password" />
-            <div><span asp-validation-for="Password" class="text-warning"></span></div>
+            <input asp-for="Password" placeholder="Enter Password" class="font-monospace text-center" />
+            <div><span asp-validation-for="Password" class="text-danger"></span></div>
             <br>
 
-            <input type="submit" value="Login"  class="btn btn-primary mb-3"/>
+            <input type="submit" value="Sign In"  class="btn btn-outline-danger mb-3 font-monospace"/>
         </form>
 
     </div>

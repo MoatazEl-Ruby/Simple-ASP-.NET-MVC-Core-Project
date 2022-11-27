@@ -1,6 +1,7 @@
 ﻿@model User
 @{
-    ViewBag.Title = "Add Student";
+
+    ViewBag.Title = "Update Instructor";
 }
 
 
@@ -8,10 +9,11 @@
 
 
 <div class="d-flex justify-content-center home">
-    <div class="text-center mt-3 bg-dark w-25  ">
-        <p class="text-danger text-center fs-3">Creation Form</p>
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger  border-dark border-bottom mt-1 border-top"></div>
+    <div class="text-center mt-5 bg-dark w-25  ">
+        <p class="text-danger text-center fs-3">Updating Form</p>
+
+        <form asp-action="UpdateInstructor" asp-controller="Student">
+            <input asp-for="Id" hidden />
             <input asp-for="Name" placeholder="Enter Name" class="mt-5 font-monospace text-center" />
             <div><span asp-validation-for="Name" class="text-danger"></span></div>
             <br />
@@ -24,18 +26,11 @@
             <input asp-for="UserName" placeholder="Enter Username" class="font-monospace text-center" />
             <div><span asp-validation-for="UserName" class="text-danger"></span></div>
             <br />
-            <input asp-for="Password" placeholder="Enter Password" class="font-monospace text-center" />
-            <br />
-            <br />
-            <input asp-for="CPassword" placeholder="Confirm Password" class="font-monospace text-center" />
-            <div><span asp-validation-for="CPassword" class="text-danger"></span></div>
-            <br />
-            <input type="submit" value="Submit" class="mb-3 btn btn-outline-success font-monospace" /><br />
-            <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger mb-3 font-monospace">Back</a>
+            <input type="submit" value="Submit" class="mb-3 btn btn-outline-warning font-monospace" /><br />
+            <a asp-action="showInstructors" asp-controller="Student" class="btn btn-outline-danger mb-3 font-monospace">Back</a>
 
         </form>
 
     </div>
 
 </div>
-

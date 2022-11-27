@@ -3,6 +3,7 @@ using ASP.NET_Lab_4.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_Lab_4.Migrations
 {
     [DbContext(typeof(Lab_4_DB))]
-    partial class Lab_4_DBModelSnapshot : ModelSnapshot
+    [Migration("20221126164607_UserAndStudent")]
+    partial class UserAndStudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -100,6 +102,9 @@ namespace ASP.NET_Lab_4.Migrations
                     b.Property<string>("Password")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -107,6 +112,9 @@ namespace ASP.NET_Lab_4.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("DeptId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Students");
                 });
@@ -140,9 +148,6 @@ namespace ASP.NET_Lab_4.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -152,7 +157,6 @@ namespace ASP.NET_Lab_4.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -198,7 +202,15 @@ namespace ASP.NET_Lab_4.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("ASP.NET_Lab_4.Models.User", "User")
+                        .WithOne("Student")
+                        .HasForeignKey("ASP.NET_Lab_4.Models.Student", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Department");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("ASP.NET_Lab_4.Models.StudentsCourses", b =>
@@ -263,6 +275,11 @@ namespace ASP.NET_Lab_4.Migrations
             modelBuilder.Entity("ASP.NET_Lab_4.Models.Student", b =>
                 {
                     b.Navigation("StudentsCourses");
+                });
+
+            modelBuilder.Entity("ASP.NET_Lab_4.Models.User", b =>
+                {
+                    b.Navigation("Student");
                 });
 #pragma warning restore 612, 618
         }

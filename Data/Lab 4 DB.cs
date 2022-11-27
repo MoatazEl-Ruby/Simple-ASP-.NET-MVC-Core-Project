@@ -15,6 +15,7 @@ namespace ASP.NET_Lab_4.Data
         public DbSet<Role> Roles { get; set; }
 
 
+
         public Lab_4_DB()
         {
 

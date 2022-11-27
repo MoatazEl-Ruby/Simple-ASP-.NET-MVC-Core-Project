@@ -1,39 +1,33 @@
-﻿@model Student
+﻿@model User
 @{
 
-    ViewBag.Title = "Update Student";
+    ViewBag.Title = "Update User";
 }
 
 
 
 
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center home">
     <div class="text-center mt-5 bg-dark w-25  ">
-        <p class="text-primary text-center fs-3">Updating Form</p>
+        <p class="text-danger text-center fs-3">Updating Form</p>
 
-        <form  method="post">
-            <input asp-for="Id" hidden  />
-            <input asp-for="Name" placeholder="Enter Name" class="mt-5"  />
+        <form asp-action="Update" asp-controller="Student">
+            <input asp-for="Id" hidden />
+            <input asp-for="Name" placeholder="Enter Name" class="mt-5 font-monospace text-center" />
             <div><span asp-validation-for="Name" class="text-danger"></span></div>
             <br />
-            <input asp-for="Age" placeholder="Enter Age"  />
+            <input asp-for="Age" placeholder="Enter Age" class="font-monospace text-center" />
             <div><span asp-validation-for="Age" class="text-danger"></span></div>
             <br />
-            <input asp-for="Email" placeholder="Enter Email"  />
+            <input asp-for="Email" placeholder="Enter Email" class="font-monospace text-center" />
             <div><span asp-validation-for="Email" class="text-danger"></span></div>
             <br />
-            <input asp-for="Username" placeholder="Enter Username" />
-            <div><span asp-validation-for="Username" class="text-danger"></span></div>
+            <input asp-for="UserName" placeholder="Enter Username" class="font-monospace text-center" />
+            <div><span asp-validation-for="UserName" class="text-danger"></span></div>
             <br />
-            <select asp-for="DeptId" asp-items="ViewBag.dept">
-
-                <option disabled>Select Department</option>
-            </select>
-            <div><span asp-validation-for="DeptId" class="text-danger"></span></div>
-            <br />
-            <input type="submit" value="Submit" class="mb-3 btn btn-warning" /><br />
-            <a asp-action="index" asp-controller="Student" class="btn btn-primary mb-3">Back</a>
+            <input type="submit" value="Submit" class="mb-3 btn btn-outline-warning font-monospace" /><br />
+            <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger mb-3 font-monospace">Back</a>
 
         </form>
 

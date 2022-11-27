@@ -1,6 +1,9 @@
 ﻿@model User
 @{
-    ViewBag.Title = "Add Student";
+
+    ViewBag.Title = "Add Instructor";
+
+
 }
 
 
@@ -31,7 +34,7 @@
             <div><span asp-validation-for="CPassword" class="text-danger"></span></div>
             <br />
             <input type="submit" value="Submit" class="mb-3 btn btn-outline-success font-monospace" /><br />
-            <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger mb-3 font-monospace">Back</a>
+            <a asp-action="showInstructors" asp-controller="Student" class="btn btn-outline-danger mb-3 font-monospace">Back</a>
 
         </form>
 

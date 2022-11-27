@@ -1,7 +1,15 @@
-﻿
-@{
-    ViewData["Title"] = "accessdenied";
+﻿@{
+    ViewData["Title"] = "Error 401";
 }
 
-<h1 class="text-danger fw-bold">You are not Allowed To Access This Page !</h1>
 
+
+<div class="display-5 fw-bold text-secondary col-6 font-monospace bg-black home mb-5 text-center ">
+    <div class="typewriter5 mb-2">
+        Hmmm...I Think Your Are
+    </div>
+    <div class="typewriter6">
+        <span class="text-danger">NOT Allowed</span> to Enter
+    </div>
+    <a asp-action="index" asp-controller="Student" class="btn btn-outline-danger mb-2 ms-4 home">Back</a>
+</div>
