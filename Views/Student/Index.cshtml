@@ -53,7 +53,7 @@
             }
 
         </table>
-        @if (User.IsInRole("Admin"))
+        @if (User.IsInRole("Admin") || User.IsInRole("Instructor"))
         {
             <a asp-action="Create" asp-controller="Student" class="btn btn-outline-dark fw-bold text-center col-2 mb-3 me-2">Add Student</a>
 
