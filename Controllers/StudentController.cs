@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 
 namespace ASP.NET_Lab_4.Controllers
 {
-    [Authorize]
+
     public class StudentController : Controller
     {
         Lab_4_DB dB;
