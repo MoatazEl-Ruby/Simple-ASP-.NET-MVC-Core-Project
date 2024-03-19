@@ -186,25 +186,25 @@ namespace ASP.NET_Lab_4.Controllers
 
 
 
-        // CheckUserName EndPoint 
+        //CheckUserName EndPoint
 
         [HttpPost]
-        public IActionResult CheckUserName(string Username, int Id)
+         public IActionResult CheckUserName(string UserName, int? Id)
         {
-            return Json(IsUnique(Username, Id));
+            return Json(IsUnique(UserName, Id));
 
         }
 
 
-        private bool IsUnique(string Username, int Id)
+        private bool IsUnique(string UserName, int? Id)
         {
             if (Id == 0)
             {
-                return !dB.Users.Any(a => a.UserName == Username);
+                return !dB.Users.Any(a => a.UserName == UserName);
             }
             else
             {
-                return !dB.Users.Any(a => a.UserName == Username && a.Id != Id);
+                return !dB.Users.Any(a => a.UserName == UserName && a.Id != Id);
 
             }
         }

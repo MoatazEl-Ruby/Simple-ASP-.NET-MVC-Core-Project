@@ -9,7 +9,7 @@
     <div class="text-center mt-5 bg-black w-25  ">
         <p class="text-danger text-center fs-3 fw-bold font-monospace typewriter7">Welcome to ITI</p>
 
-        <form asp-action="Register" asp-controller="Account">
+        <form  method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <input asp-for="Name" placeholder="Enter Name" class="font-monospace text-center" />

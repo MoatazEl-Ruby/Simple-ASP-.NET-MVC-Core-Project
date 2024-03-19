@@ -73,6 +73,23 @@ namespace ASP.NET_Lab_4.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoleName = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RoleName = "Instructor"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            RoleName = "Student"
+                        });
                 });
 
             modelBuilder.Entity("ASP.NET_Lab_4.Models.Student", b =>
@@ -126,7 +143,7 @@ namespace ASP.NET_Lab_4.Migrations
 
                     b.HasIndex("Std_Id");
 
-                    b.ToTable("studentsCourses");
+                    b.ToTable("StudentsCourses");
                 });
 
             modelBuilder.Entity("ASP.NET_Lab_4.Models.User", b =>
@@ -158,6 +175,16 @@ namespace ASP.NET_Lab_4.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Age = 27,
+                            Name = "admin",
+                            Password = "123456",
+                            UserName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("CourseDepartment", b =>
@@ -188,6 +215,13 @@ namespace ASP.NET_Lab_4.Migrations
                     b.HasIndex("UsersId");
 
                     b.ToTable("RoleUser");
+
+                    b.HasData(
+                        new
+                        {
+                            RolesId = 1,
+                            UsersId = 1
+                        });
                 });
 
             modelBuilder.Entity("ASP.NET_Lab_4.Models.Student", b =>

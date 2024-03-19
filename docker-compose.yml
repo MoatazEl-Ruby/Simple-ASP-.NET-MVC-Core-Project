@@ -1,0 +1,36 @@
+version: '3.8'  
+
+services:
+  school_system:
+    image: moatazgamal/school_system:latest
+    container_name: school_system
+    depends_on:
+     - db
+    ports:
+      - "5214:80"
+    environment:
+      DATABASE_URL: "Server=db,1433;Database=alexv5;User Id=sa;Password=Dockerpassword123!"
+      DATABASE_USER: "sa"
+      DATABASE_PASSWORD: "Dockerpassword123!"
+    networks:
+      - app-network
+
+  db:
+    image: mcr.microsoft.com/mssql/server:latest
+    container_name: database
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Dockerpassword123!"
+    volumes:
+      - db-data:/var/lib/mssql/data
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
